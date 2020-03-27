@@ -16,8 +16,8 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-emotion`,
+    `gatsby-transformer-remark`,// 可以转换 markdown 文件的数据
+    `gatsby-plugin-emotion`,// js 模块化 css 插入
     {
       resolve: `gatsby-plugin-typography`,
       options: {
