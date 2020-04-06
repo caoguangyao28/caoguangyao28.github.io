@@ -30,20 +30,22 @@
 <p><img src="https://gitee.com/caoguangyao/upic/raw/master/uPic/bg2014100802.png" alt="Event Loop"></p>
 <p>上图中，主线程运行的时候，产生堆（heap）和栈（stack） ，栈中的代码调用各种外部API，它们在任务队列中 加入各种事件（click load done）。只要栈中的代码执行完毕，主线程就会读取 “任务队列”，依次执行那些事件所对应的回调函数。  </p>
 <p>执行栈中的代码（同步任务），总是在读取“任务队列”（异步任务）之前执行。示例如下： </p>
-<pre><code class="language-javascript">var req = new XMLHttpRequest();
-req.open('GET',url);
-req.onload = function(){};
-req.onerror = function(){};
-req.send();
-</code></pre>
-<p>上面代码中的req.send方法是Ajax操作向服务器发送数据，它是一个异步任务，意味着只有当前脚本的所有代码执行完，系统才会去读取“任务队列”。所以，它与下面的写法等价。  </p>
-<pre><code class="language-javascript">var req = new XMLHttpRequest();
-req.open('GET',url);
-req.send();
-req.onload = function(){};
-req.onerror = function(){};
-</code></pre>
 </blockquote>
+<pre><code class="language-javascript">var req = new XMLHttpRequest();
+req.open('GET',url);
+req.onload = function(){};
+req.onerror = function(){};
+req.send();
+</code></pre>
+<blockquote>
+<p>上面代码中的req.send方法是Ajax操作向服务器发送数据，它是一个异步任务，意味着只有当前脚本的所有代码执行完，系统才会去读取“任务队列”。所以，它与下面的写法等价。  </p>
+</blockquote>
+<pre><code class="language-javascript">var req = new XMLHttpRequest();
+req.open('GET',url);
+req.send();
+req.onload = function(){};
+req.onerror = function(){};
+</code></pre>
 <blockquote>
 <p>也就是说，指定回调函数的部分（onload 和 onerror），在 send() 方法的前面或是后面无关紧要，因为它们属于执行栈的一部分，系统总是执行完它们，才会读取“任务队列”。  </p>
 </blockquote>
