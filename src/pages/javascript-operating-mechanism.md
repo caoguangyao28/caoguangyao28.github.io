@@ -2,7 +2,8 @@
 title: "javascript-operating-mechanism"
 date: "2020-04-06"
 ---
-Javascript 运行机制
+Javascript 运行机制  
+[来自阮一峰的网络日志](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
 
 ## 一、为什么JavaScript是单线程？
 
@@ -32,7 +33,7 @@ JavaScript的设计者意识到，这时主线程完全可以不管IO设备，�
 >
 >主线程和任务队列的示意图
 >
-><img src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014100801.jpg" alt="任务队列" style="zoom:76%;" />
+><img src="https://gitee.com/caoguangyao/upic/raw/master/uPic/renwuduilie.jpg" alt="任务队列" style="zoom:76%;" />
 
 ## 三、事件和回调函数  
 
