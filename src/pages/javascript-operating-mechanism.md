@@ -55,23 +55,24 @@ JavaScript的设计者意识到，这时主线程完全可以不管IO设备，�
 >
 >执行栈中的代码（同步任务），总是在读取“任务队列”（异步任务）之前执行。示例如下： 
 >
->```javascript
->var req = new XMLHttpRequest();
->req.open('GET',url);
->req.onload = function(){};
->req.onerror = function(){};
->req.send();
->```
+
+```javascript
+var req = new XMLHttpRequest();
+req.open('GET',url);
+req.onload = function(){};
+req.onerror = function(){};
+req.send();
+```
 >
 >上面代码中的req.send方法是Ajax操作向服务器发送数据，它是一个异步任务，意味着只有当前脚本的所有代码执行完，系统才会去读取“任务队列”。所以，它与下面的写法等价。  
 >
->```javascript
->var req = new XMLHttpRequest();
->req.open('GET',url);
->req.send();
->req.onload = function(){};
->req.onerror = function(){};
->```
+```javascript
+var req = new XMLHttpRequest();
+req.open('GET',url);
+req.send();
+req.onload = function(){};
+req.onerror = function(){};
+```
 
 >也就是说，指定回调函数的部分（onload 和 onerror），在 send() 方法的前面或是后面无关紧要，因为它们属于执行栈的一部分，系统总是执行完它们，才会读取“任务队列”。  
 
