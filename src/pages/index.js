@@ -35,7 +35,7 @@ export default ({ data }) => {
               {node.frontmatter.title}{" "}
               <span
                 css={css`
-                  color: #bbb;
+                  color: #196727;
                 `}
               >
                 — {node.frontmatter.date}
@@ -52,7 +52,11 @@ export default ({ data }) => {
 
 export const query = graphql`
   {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {id: {ne: "about-me"}}}) {
+      totalCount
+      pageInfo {
+        currentPage
+      }
       edges {
         node {
           id
@@ -60,13 +64,13 @@ export const query = graphql`
           frontmatter {
             date(formatString: "YYYY-MM-DD")
             title
+            id
           }
           fields {
             slug
           }
         }
       }
-      totalCount
     }
   }
 `

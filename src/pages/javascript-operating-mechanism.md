@@ -1,9 +1,10 @@
 ---
 title: "javascript-operating-mechanism"
 date: "2020-04-06"
+id: "js-doc1"
 ---
 Javascript 运行机制  
-[来自阮一峰的网络日志](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+[原文拜读](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
 
 ## 一、为什么JavaScript是单线程？
 

@@ -1,7 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
-
 import { rhythm } from "../utils/typography"
 
 export default ({ children }) => {
@@ -25,6 +24,9 @@ export default ({ children }) => {
         padding-top: ${rhythm(1.5)};
       `}
     >
+      <div css= {css`
+        width: 100%;
+      `}>
       <Link to={`/`}>
         <h3
           css={css`
@@ -40,10 +42,12 @@ export default ({ children }) => {
         to={`/about/`}
         css={css`
           float: right;
+          color: #000;
         `}
       >
-        About
+        About Me
       </Link>
+      </div>
       {children}
     </div>
   )
