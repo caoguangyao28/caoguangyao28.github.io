@@ -39,7 +39,7 @@ export default ({ children }) => {
         </h3>
       </Link>
       <Link
-        to={`/about/`}
+        to={`/aboutMe/`}
         css={css`
           float: right;
           color: #000;
